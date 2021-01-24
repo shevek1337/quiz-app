@@ -22,7 +22,7 @@ const Quiz = () => {
         setResults(res.data["results"]);
         setLoading(true);
       });
-  }, []);
+  }, [categoryId, difficulty]);
 
   return (
     <>
