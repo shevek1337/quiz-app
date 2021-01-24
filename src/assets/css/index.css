@@ -342,6 +342,59 @@ template {
   display: none;
 }
 
+@media only screen and (max-width: 910px) {
+  body {
+    height: inherit !important;
+  }
+  .home {
+    height: 100vh;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .home .quote {
+    width: 90%;
+  }
+  .home .select {
+    gap: 40px;
+    width: 90%;
+  }
+  .home .select .select-option {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .home .select .select-option label {
+    font-size: 24px;
+  }
+  .home .select .select-option select {
+    width: 100%;
+  }
+  .home .select .play {
+    width: 100%;
+  }
+  div.quiz {
+    margin: 20px 0;
+  }
+  div.quiz .quiz-section {
+    width: 100%;
+  }
+  div.quiz .quiz-section .question {
+    width: 80%;
+  }
+  div.quiz .quiz-section .answers {
+    width: 90%;
+  }
+  div.quiz .quiz-section .answers div {
+    width: 100%;
+  }
+  div.quiz .quiz-section .answers div label span {
+    width: 100%;
+  }
+}
+
 div.answers div:nth-of-type(1) input + label .answer:before {
   background: #9b5de5;
 }

@@ -1,0 +1,52 @@
+@media only screen and (max-width: 910px) {
+  body {
+    height: inherit !important;
+  }
+
+  //   start page
+  .home {
+    height: 100vh;
+    justify-content: center;
+    .quote {
+      width: 90%;
+    }
+    .select {
+      gap: 40px;
+      width: 90%;
+      .select-option {
+        width: 100%;
+        flex-direction: column;
+        label {
+          font-size: 24px;
+        }
+        select {
+          width: 100%;
+        }
+      }
+      .play {
+        width: 100%;
+      }
+    }
+  }
+
+  //   quiz page
+  div.quiz {
+    margin: 20px 0;
+    // flex-direction: column-reverse;
+    .quiz-section {
+      width: 100%;
+      .question {
+        width: 80%;
+      }
+      .answers {
+        width: 90%;
+        div {
+          width: 100%;
+          label span {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
