@@ -232,3 +232,16 @@ body {
     }
   }
 }
+
+// Results page
+.results {
+  width: 740px;
+  background-color: white;
+  text-align: center;
+  padding: 40px 20px;
+  border: 2px solid $darkGray;
+  border-radius: 10px;
+  h1 {
+    font-weight: 700;
+  }
+}

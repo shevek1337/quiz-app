@@ -393,6 +393,12 @@ template {
   div.quiz .quiz-section .answers div label span {
     width: 100%;
   }
+  div.results {
+    width: 80%;
+  }
+  div.results img {
+    width: 100%;
+  }
 }
 
 div.answers div:nth-of-type(1) input + label .answer:before {
@@ -917,5 +923,18 @@ body {
 
 .buttons .restart:before {
   background: gray;
+}
+
+.results {
+  width: 740px;
+  background-color: white;
+  text-align: center;
+  padding: 40px 20px;
+  border: 2px solid #333533;
+  border-radius: 10px;
+}
+
+.results h1 {
+  font-weight: 700;
 }
 /*# sourceMappingURL=index.css.map */
