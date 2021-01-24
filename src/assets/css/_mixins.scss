@@ -1,0 +1,39 @@
+@mixin button {
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid $darkGray;
+  border-radius: 10px;
+  color: $darkGray;
+  font-size: 18px;
+  line-height: 24px;
+  top: 0;
+  right: 0;
+  transition: all 0.15s;
+  &:before {
+    z-index: -1;
+    position: absolute;
+    top: -5px;
+    right: -6px;
+    bottom: 0;
+    left: 0;
+    content: "";
+    // width: 100%;
+    transform: translate3d(-8px, 9px, 0);
+    border-radius: 10px;
+    border: 2px solid $darkGray;
+    transition: all 0.15s;
+  }
+  &:active {
+    top: 7px;
+    right: 7px;
+    &:before {
+      transform: translate3d(0, 0, 0);
+      //   left: -4px;
+      //   bottom: -4px;
+      top: 0;
+      right: 0;
+    }
+  }
+}

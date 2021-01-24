@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap");
+@import "./normilize";
+@import "./mixins";
+@import "./colors";
+// different colors for every answer button
+@import "./answers";
+* {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $bg;
+}
+
+// =========== HOME PAGE START ===========
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+// quote on start page
+.quote {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  h1 {
+    color: $darkGray;
+    font-weight: 500;
+    margin: 0;
+  }
+  h2 {
+    color: $lightGray;
+    margin: 0;
+  }
+}
+
+// Select category & difficulty area
+.select {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
+  .select-option {
+    width: 780px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    label {
+      font-size: 36px;
+      line-height: 48px;
+      font-weight: 500;
+    }
+    select {
+      outline: none;
+      width: 360px;
+      height: 50px;
+      border: 2px solid #333533;
+      border-radius: 10px;
+      padding: 0 20px;
+      font-size: 18px;
+      font-weight: 500;
+      color: $darkGray;
+      appearance: none;
+      background: url(../svg/arrow.svg) 95% / 20px no-repeat white;
+    }
+  }
+}
+
+// Play button on main page
+.play {
+  @include button();
+  width: 360px;
+  height: 50px;
+  font-weight: 500;
+  background-color: $nextLight;
+  &:before {
+    background: $nextDark;
+  }
+}
+
+// =========== HOME PAGE END ===========
+
+// =========== QUIZ PAGE START ===========
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+// category, difficulty and wishes
+.quiz-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2 {
+    font-size: 36px;
+    line-height: 47px;
+    font-weight: 500;
+    color: $darkGray;
+    margin: 0;
+  }
+  h3 {
+    font-size: 24px;
+    line-height: 32px;
+    color: $darkGray;
+    font-weight: 300;
+    margin: 0;
+  }
+}
+
+// question number from 10
+.quiz-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .question-number {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #242423;
+    width: 172px;
+    height: 44px;
+    border-radius: 10px;
+    color: white;
+    margin: 0 auto -22px auto;
+    p {
+      margin: 0;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  // question card
+  .question {
+    width: 740px;
+    background-color: white;
+    text-align: center;
+    padding: 40px 20px;
+    border: 2px solid $darkGray;
+    border-radius: 10px;
+    h2 {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 32px;
+      color: black;
+    }
+  }
+
+  // answers section
+  .answers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 784px;
+    gap: 20px;
+    margin-top: 20px;
+    input {
+      display: none;
+
+      + label {
+        .answer {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          @include button();
+          width: 370px;
+          height: 60px;
+          font-weight: 500;
+          background-color: white;
+          &:before {
+            background: $answerOne;
+          }
+          &:active {
+            background-color: $answerOne;
+            color: white;
+          }
+        }
+      }
+      &:checked + label .answer {
+        background-color: $answerOne;
+        color: white;
+        top: 7px;
+        right: 7px;
+        &:before {
+          transform: translate3d(0, 0, 0);
+          //   left: -4px;
+          //   bottom: -4px;
+          top: 0;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+// next and restart buttons
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+  .next {
+    @include button();
+    width: 210px;
+    height: 60px;
+    font-weight: 500;
+    background-color: $nextLight;
+    &:before {
+      background: $nextDark;
+    }
+  }
+  .restart {
+    @include button();
+    width: 210px;
+    height: 60px;
+    font-weight: 500;
+    background-color: white;
+    &:before {
+      background: gray;
+    }
+  }
+}

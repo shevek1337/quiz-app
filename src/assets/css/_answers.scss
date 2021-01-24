@@ -1,0 +1,57 @@
+// different colors for every answer button
+
+div.answers div:nth-of-type(1) input {
+  + label .answer {
+    &:before {
+      background: $answerOne;
+    }
+    &:active {
+      background-color: $answerOne;
+    }
+  }
+  &:checked + label .answer {
+    background-color: $answerOne;
+  }
+}
+
+div.answers div:nth-of-type(2) input {
+  + label .answer {
+    &:before {
+      background: $answerTwo;
+    }
+    &:active {
+      background-color: $answerTwo;
+    }
+  }
+  &:checked + label .answer {
+    background-color: $answerTwo;
+  }
+}
+
+div.answers div:nth-of-type(3) input {
+  + label .answer {
+    &:before {
+      background: $answerThree;
+    }
+    &:active {
+      background-color: $answerThree;
+    }
+  }
+  &:checked + label .answer {
+    background-color: $answerThree;
+  }
+}
+
+div.answers div:nth-of-type(4) input {
+  + label .answer {
+    &:before {
+      background: $answerFour;
+    }
+    &:active {
+      background-color: $answerFour;
+    }
+  }
+  &:checked + label .answer {
+    background-color: $answerFour;
+  }
+}
