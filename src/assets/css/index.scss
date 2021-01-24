@@ -176,8 +176,9 @@ body {
           justify-content: center;
           align-items: center;
           @include button();
+          text-align: center;
           width: 370px;
-          height: 60px;
+          min-height: 60px;
           font-weight: 500;
           background-color: white;
           &:before {
@@ -196,8 +197,6 @@ body {
         right: 7px;
         &:before {
           transform: translate3d(0, 0, 0);
-          //   left: -4px;
-          //   bottom: -4px;
           top: 0;
           right: 0;
         }
