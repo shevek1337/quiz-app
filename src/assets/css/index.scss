@@ -220,6 +220,16 @@ body {
     &:before {
       background: $nextDark;
     }
+    &:disabled {
+      top: 7px;
+      right: 7px;
+      background: lightgray;
+      &:before {
+        transform: translate3d(0, 0, 0);
+        top: 0;
+        right: 0;
+      }
+    }
   }
   .restart {
     @include button();

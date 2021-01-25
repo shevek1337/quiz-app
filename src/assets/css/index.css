@@ -873,6 +873,19 @@ body {
   background: #028090;
 }
 
+.buttons .next:disabled {
+  top: 7px;
+  right: 7px;
+  background: lightgray;
+}
+
+.buttons .next:disabled:before {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  top: 0;
+  right: 0;
+}
+
 .buttons .restart {
   outline: 0;
   border: 0;

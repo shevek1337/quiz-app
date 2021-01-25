@@ -30,7 +30,7 @@ const Quiz = () => {
         <div className="quiz">
           <div className="quiz-info">
             <h3>Difficulty: {difficulty || "Any"}</h3>
-            <h2>Category: {categoryName}</h2>
+            <h2>Category {categoryName}</h2>
             <h3>Good Luck and Have Fun!</h3>
           </div>
           <QuestionSection results={results} />
