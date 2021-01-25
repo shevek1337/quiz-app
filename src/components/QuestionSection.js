@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import Results from "./Results";
 
@@ -14,27 +14,26 @@ const QuestionSection = ({ results }) => {
   const randomAnswers = answers.sort(() => Math.random() - 0.5);
 
   const [score, setScore] = useState(0);
-  let selectedAnswer = "";
+  const refContainer = useRef(null);
 
   const handleNext = () => {
-    if (selectedAnswer === correct_answer) {
+    if (refContainer.current.value === correct_answer) {
       setScore(score + 1);
     }
-    if (selectedAnswer.length > 0) {
+    if (refContainer.current.value) {
       setIndexNumber(indexNumber + 1);
       setResultNumber(resultNumber + 1);
-      selectedAnswer = "";
     } else {
       alert("Choose answer!");
     }
-  };
-
-  const handleFinish = () => {
-    setShowQuiz(false);
+    if (resultNumber > 9) {
+      setShowQuiz(false);
+      setIndexNumber(0);
+    }
+    console.log(refContainer.current.value);
   };
 
   const handleRestart = () => {
-    selectedAnswer = "";
     setScore(0);
     history.push("/");
   };
@@ -52,17 +51,18 @@ const QuestionSection = ({ results }) => {
             </div>
             <div className="answers">
               {randomAnswers.map((answer) => {
-                let randomKey = Math.random().toString(36).substring(7);
+                const randomKey = Math.random().toString(36).substring(7);
                 return (
                   <div key={randomKey}>
                     <input type="radio" id={answer} name="answer" />
                     <label htmlFor={answer}>
                       <span
+                        ref={refContainer}
+                        onClick={() => (refContainer.current.value = answer)}
                         className="answer"
                         dangerouslySetInnerHTML={{
                           __html: answer,
                         }}
-                        onClick={() => (selectedAnswer = answer)}
                       />
                     </label>
                   </div>
@@ -70,16 +70,9 @@ const QuestionSection = ({ results }) => {
               })}
             </div>
             <div className="buttons">
-              {indexNumber < 9 && (
-                <button className="next" onClick={handleNext}>
-                  Next
-                </button>
-              )}
-              {indexNumber >= 9 && (
-                <button className="next" onClick={handleFinish}>
-                  Finish
-                </button>
-              )}
+              <button className="next" onClick={handleNext}>
+                {resultNumber < 10 ? "Next" : "Finish"}
+              </button>
               <button className="restart" onClick={handleRestart}>
                 Restart
               </button>
