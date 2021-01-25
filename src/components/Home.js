@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-const Home = (props) => {
+const Home = () => {
   const history = useHistory();
   const [categoriesList, setCategoriesList] = useState([]);
   const [loading, setLoading] = useState(false);

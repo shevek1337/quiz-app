@@ -3,19 +3,17 @@ import { useHistory } from "react-router-dom";
 import Results from "./Results";
 
 const QuestionSection = ({ results }) => {
-  const [showQuiz, setShowQuiz] = useState(true);
-
   const history = useHistory();
+  const [showQuiz, setShowQuiz] = useState(true);
   const [indexNumber, setIndexNumber] = useState(0);
   const [resultNumber, setResultNumber] = useState(1);
   const [disabledButton, setDisabledButton] = useState("disabled");
-  const { question, correct_answer, incorrect_answers } = results[indexNumber];
+  const [selectedAnswer, setSelectedAnswer] = useState("");
+  const [score, setScore] = useState(0);
 
+  const { question, correct_answer, incorrect_answers } = results[indexNumber];
   const answers = [correct_answer, ...incorrect_answers];
   const [randomAnswers, setRandomAnswers] = useState([]);
-
-  const [score, setScore] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState("");
 
   useEffect(() => {
     setRandomAnswers(answers.sort(() => Math.random() - 0.5));
@@ -53,7 +51,7 @@ const QuestionSection = ({ results }) => {
               <h2 dangerouslySetInnerHTML={{ __html: question }} />
             </div>
             <div className="answers">
-              {randomAnswers.map((answer, i) => {
+              {randomAnswers.map((answer) => {
                 return (
                   <div key={resultNumber + answer}>
                     <input type="radio" id={answer} name="answer" />
