@@ -17,6 +17,7 @@ const QuestionSection = ({ results }) => {
 
   useEffect(() => {
     setRandomAnswers(answers.sort(() => Math.random() - 0.5));
+    // eslint-disable-next-line
   }, [indexNumber]);
 
   const handleNext = () => {
