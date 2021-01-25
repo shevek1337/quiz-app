@@ -10,7 +10,6 @@ function App() {
       <Route exact path="/">
         <Home />
       </Route>
-      {/* <Route path="/quiz/:categoryId/:difficulty/:categoryName"> */}
       <Route path="/quiz">
         <Quiz />
       </Route>
